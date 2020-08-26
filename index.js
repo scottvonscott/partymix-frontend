@@ -1,6 +1,5 @@
 document.addEventListener('DOMContentLoaded', () => {
     fetchParties()
-
 })
 
 const partyList = document.getElementById('party-list')
@@ -18,12 +17,17 @@ function addParties(response){
 }
 
 function addPartyToDom(party){
-    partyList.innerHTML += `
-    <div id="party-${party.id}">
-    <li>
-    <strong class="name">${party.title}</strong>:
-    </li>
-        <button class="delete" data-id="${party.id}">Delete</button>
-        <button class="update" data-id="${party.id}">Update</button>
-        </div>`
+    let h2 = document.createElement('h2')
+    h2.innerText = party.title
+    
+    let p = document.createElement('p')
+    p.innerText = "Party Items:"
+    let i = document.createElement('p')
+    i.innerText = party.[1]
+    p.append(i)
+
+    let divCard = document.createElement('div')
+    divCard.setAttribute('class', 'card')
+    divCard.append(h2, p)
+    partyList.append(divCard)
 }
