@@ -23,7 +23,8 @@ function addPartyToDom(party){
     let p = document.createElement('p')
     p.innerText = "Party Items:"
     let i = document.createElement('p')
-    i.innerText = party.[1]
+    debugger
+    i.innerText = party.items
     p.append(i)
 
     let divCard = document.createElement('div')
