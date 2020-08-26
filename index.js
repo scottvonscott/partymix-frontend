@@ -1,8 +1,12 @@
-document.addEventListener('DOMContentLoaded', () => {
-    fetchParties()
-})
+
+// Variables
 
 const partyList = document.getElementById('party-list')
+const partyForm = document.getElementById('party-form')
+const partyTitle = document.getElementById('party-title')
+
+
+//  Fetch Functions
 
 function fetchParties(){
     fetch('http://localhost:3000/parties')
@@ -10,21 +14,38 @@ function fetchParties(){
     .then(addParties)
 }
 
+function fetchItems(){
+    fetch('http://localhost:3000/parties')
+    .then(res => res.json())
+}
+
+function fetchCategories(){
+    fetch('http://localhost:3000/categories')
+    .then(res => res.json())
+}
+
 function addParties(response){
-    response.forEach( party => {
+    response.data.forEach( party => {
         addPartyToDom(party)
          })
 }
 
+function handleFormSubmit(e){
+    e.preventDefault()
+    debugger
+    
+} 
+
+// Dom Functions
+
 function addPartyToDom(party){
     let h2 = document.createElement('h2')
-    h2.innerText = party.title
+    h2.innerText = party.attributes.title
     
     let p = document.createElement('p')
     p.innerText = "Party Items:"
     let i = document.createElement('p')
-    debugger
-    i.innerText = party.items
+    i.innerText = party
     p.append(i)
 
     let divCard = document.createElement('div')
@@ -32,3 +53,10 @@ function addPartyToDom(party){
     divCard.append(h2, p)
     partyList.append(divCard)
 }
+
+// Event Listeners
+document.addEventListener('DOMContentLoaded', () => {
+    fetchParties()
+    partyForm.addEventListener('submit', handleFormSubmit)
+    // itemList.addEventListener('click', handleListClick)
+})
