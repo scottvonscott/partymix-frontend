@@ -5,11 +5,13 @@ const partyList = document.getElementById('party-list')
 const partyForm = document.getElementById('party-form')
 const partyTitle = document.getElementById('party-title')
 const itemList = []
+const planList = []
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     fetchParties()
     fetchItems()
+    fetchPartyPlans()
     partyForm.addEventListener('submit', handleFormSubmit)
 })
 
@@ -22,20 +24,16 @@ function fetchParties(){
     .then(addParties)
 }
 
-function fetchPartyItems(party){
-    fetch('http://localhost:3000/parties/#{party}')
+function fetchPartyPlans(){
+    fetch('http://localhost:3000/party_plans')
     .then(res => res.json())
+    .then(partyPlanLister)
 }
 
 function fetchItems(){
     fetch('http://localhost:3000/items')
     .then(res => res.json())
     .then(itemLister)
-}
-
-function fetchCategories(){
-    fetch('http://localhost:3000/categories')
-    .then(res => res.json())
 }
 
 function addParties(response){
@@ -50,7 +48,24 @@ function itemLister(response) {
     })
 }
 
+function partyPlanLister(response) {
+    response.forEach(plan => {
+        planList.push(plan)
+    })
+}
 
+function planIndex(p){
+    let partyItemsIds = planList.map(plan => {
+         if (plan.party_id === p){
+             return plan.item_id
+         }})
+        partyItemIds = partyItemsIds.filter( Number)
+        partyItemsKV = itemList.map(item => {
+            partyItemIds.forEach(id => {
+            if id === item.id{
+            return {item.id: item.attribute.name}
+     }})
+ }
 function handleFormSubmit(e){
     e.preventDefault()
 
@@ -91,5 +106,10 @@ function addPartyToDom(party){
 }
 
 function expandParties(e) {
+    
     alert("You clicked it!")
+    let clickedParty = e.target
+    let newItem = document.createElement('p')
+    debugger
+    // let partyItems = itemList.map(i => )
 }
