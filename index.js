@@ -15,7 +15,7 @@ function fetchParties(){
 }
 
 function fetchItems(){
-    fetch('http://localhost:3000/parties')
+    fetch('http://localhost:3000/items')
     .then(res => res.json())
 }
 
@@ -30,11 +30,29 @@ function addParties(response){
          })
 }
 
+
 function handleFormSubmit(e){
     e.preventDefault()
-    debugger
-    
-} 
+
+    let newPartyObj = {
+        title: partyTitle.value,
+    }
+    let configObj = {
+        method: 'POST',
+        headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json"
+        },
+        body: JSON.stringify(newPartyObj)
+    }
+
+    fetch('http://localhost:3000/parties', configObj)
+    .then(res => res.json())
+    .then(json => {
+        addPartyToDom(json.data)
+        
+    })
+}
 
 // Dom Functions
 
