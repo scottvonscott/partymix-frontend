@@ -23,9 +23,10 @@ attachToDom(){
 }
 
 renderParty(){
-    this.element.innerHTML = 
-    `
-    <strong class="title">${this.title}</strong><br>`
+    this.element.setAttribute('class', 'party')
+    this.element.setAttribute('id', `Party ${this.element.id}`)
+    this.element.innerText = this.title
+
     this.items.forEach(i => {
         let itemEle = document.createElement('li')
         itemEle.innerText = i.name
@@ -36,14 +37,15 @@ renderParty(){
     let updateBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'delete')
     deleteBtn.innerText = 'Delete'
+    deleteBtn.hidden = true
     updateBtn.setAttribute('class', 'update')
     updateBtn.innerText = "Update"
+    updateBtn.hidden = true
     this.element.append(deleteBtn, updateBtn)
     this.element.addEventListener("click", expandParties)
 
     function expandParties(){
-        debugger
-        let hiders = this.element.childNodes
+        let hiders = this.childNodes
         hiders.forEach(i => {
             i.hidden = !i.hidden
         })
@@ -51,6 +53,7 @@ renderParty(){
 
     return this.element
 }
+
 
 handleListClick = (e) => {
 
@@ -71,3 +74,31 @@ handleListClick = (e) => {
  }
 
 }
+
+// function addPartyToDom(party){
+//     let h2 = document.createElement('h2')
+//     h2.setAttribute('class', 'party')
+//     h2.setAttribute('id', `Party ${party.id}`)
+//     h2.innerText = party.attributes.title
+
+//     let partyItems = collectPartyItems(parseInt(party.id));
+//     partyItems.forEach(i => {
+        
+//         let newItem = document.createElement('p')
+//         let itemCategory = document.createElement('h3')
+//         itemCategory.hidden = true
+//         newItem.setAttribute('class', 'party-item')
+//         newItem.innerText = i.attributes.name
+//         itemCategory.innerText = `${i.attributes.categories[0].name}:`
+//         h2.appendChild(itemCategory)
+//         itemCategory.appendChild(newItem)
+//     })
+
+//     let divCard = document.createElement('div')
+//     divCard.setAttribute('class', 'card')
+//     divCard.append(h2)
+//     partyList.append(divCard)
+//     h2.addEventListener("click", expandParties); 
+
+    
+// }
