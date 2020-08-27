@@ -98,28 +98,28 @@ function handleFormSubmit(e){
 function addPartyToDom(party){
     let h2 = document.createElement('h2')
     h2.setAttribute('class', 'party')
-    h2.setAttribute('id', party.id)
+    h2.setAttribute('id', `Party ${party.id}`)
     h2.innerText = party.attributes.title
 
+    let partyItems = planIndex(parseInt(party.id));
+    partyItems.forEach(i => {
+        let newItem = document.createElement('p')
+        newItem.setAttribute('class', 'party-item')
+        newItem.innerText = i
+        newItem.hidden = true
+        h2.appendChild(newItem)
+    })
     let divCard = document.createElement('div')
     divCard.setAttribute('class', 'card')
     divCard.append(h2)
     partyList.append(divCard)
     h2.addEventListener("click", expandParties); 
 
-    function expandParties(e) {
-    
-        alert("You clicked it!")
-        let clickedParty = e.target
-        
-        let partyItems = planIndex(parseInt(clickedParty.id));
-        partyItems.forEach(i => {
-            let newItem = document.createElement('p')
-            newItem.innerText = i
-            h2.appendChild(newItem)
-        })
+    function expandParties(){
+       let hiders = h2.childNodes
+       hiders.forEach(i => {
+           i.hidden = !i.hidden
+       })
     }
     
 }
-
-
