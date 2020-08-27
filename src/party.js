@@ -4,53 +4,70 @@ class Party{
 
     static all = []
 
-    constructor({name, id}){
-    this.name = name
+    constructor({title, id, items}){
+    this.title = title
     this.id = id
+    this.items = items
+
 
     this.element = document.createElement('div')
-    this.element.id = `party-${party.id}`
-    this.partyList
-    const partyList = document.getElementById('party-list')
+    this.element.id = `party-${this.id}`
+    this.partyList = document.getElementById('party-list')
+    this.element.addEventListener('click', this.handleListClick)
     Party.all.push(this)
 }
 
 attachToDom(){
-
+    this.partyList.append(this.renderParty())
+    
 }
 
-}
-
-function addPartyToDom(party){
-    let h2 = document.createElement('h2')
-    h2.setAttribute('class', 'party')
-    h2.setAttribute('id', `Party ${party.id}`)
-    h2.innerText = party.attributes.title
-
-    let partyItems = collectPartyItems(parseInt(party.id));
-    partyItems.forEach(i => {
-        
-        let newItem = document.createElement('p')
-        let itemCategory = document.createElement('h3')
-        itemCategory.hidden = true
-        newItem.setAttribute('class', 'party-item')
-        newItem.innerText = i.attributes.name
-        itemCategory.innerText = `${i.attributes.categories[0].name}:`
-        h2.appendChild(itemCategory)
-        itemCategory.appendChild(newItem)
+renderParty(){
+    this.element.innerHTML = 
+    `
+    <strong class="title">${this.title}</strong><br>`
+    this.items.forEach(i => {
+        let itemEle = document.createElement('li')
+        itemEle.innerText = i.name
+        itemEle.hidden = true
+        this.element.append(itemEle)
     })
-
-    let divCard = document.createElement('div')
-    divCard.setAttribute('class', 'card')
-    divCard.append(h2)
-    partyList.append(divCard)
-    h2.addEventListener("click", expandParties); 
+    let deleteBtn = document.createElement('button')
+    let updateBtn = document.createElement('button')
+    deleteBtn.setAttribute('class', 'delete')
+    deleteBtn.innerText = 'Delete'
+    updateBtn.setAttribute('class', 'update')
+    updateBtn.innerText = "Update"
+    this.element.append(deleteBtn, updateBtn)
+    this.element.addEventListener("click", expandParties)
 
     function expandParties(){
-       let hiders = h2.childNodes
-       hiders.forEach(i => {
-           i.hidden = !i.hidden
-       })
-    }
-    
+        debugger
+        let hiders = this.element.childNodes
+        hiders.forEach(i => {
+            i.hidden = !i.hidden
+        })
+     }
+
+    return this.element
+}
+
+handleListClick = (e) => {
+
+    if (e.target.className === "delete"){
+        let id = e.target.dataset.id
+         deleteItem(id)
+    } else if(e.target.className === 'update'){
+         let itemId = e.target.dataset.id
+         e.target.className = "save"
+         e.target.innerText = "Save"
+         addUpdateItemFields(itemId)
+     } else if(e.target.className === 'save'){
+         let itemId = e.target.dataset.id
+         e.target.className = "update"
+         e.target.innerText = "Update"
+         itemsAdapter.sendPatchRequest(itemId)
+     }
+ }
+
 }
