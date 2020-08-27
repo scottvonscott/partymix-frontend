@@ -4,11 +4,10 @@ class Party{
 
     static all = []
 
-    constructor({title, id, items}){
+    constructor({title, id, items_and_categories}){
     this.title = title
     this.id = id
-    this.items = items
-
+    this.items = items_and_categories
 
     this.element = document.createElement('div')
     this.element.id = `party-${this.id}`
@@ -29,9 +28,13 @@ renderParty(){
 
     this.items.forEach(i => {
         let itemEle = document.createElement('li')
+        let itemCat = document.createElement('h3')
+        
+        itemCat.innerText = i.category
+        itemCat.hidden = true
         itemEle.innerText = i.name
-        itemEle.hidden = true
-        this.element.append(itemEle)
+        this.element.append(itemCat)
+        itemCat.append(itemEle)
     })
     let deleteBtn = document.createElement('button')
     let updateBtn = document.createElement('button')
