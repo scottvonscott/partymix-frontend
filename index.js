@@ -12,8 +12,6 @@ const moviesTV = document.getElementById('item-movies-tv')
 const games = document.getElementById('item-games')
 const decorations = document.getElementById('item-decorations')
 const costumes = document.getElementById('item-costumes')
-const itemList = []
-const planList = []
 
 const itemsAdapter = new ItemsAdapter
 const partiesAdapter = new PartiesAdapter
@@ -23,61 +21,11 @@ document.addEventListener('DOMContentLoaded', () => {
     
     itemsAdapter.fetchItems()
     partiesAdapter.fetchParties()
-    // fetchPartyPlans()
     // partyForm.addEventListener('submit', handleFormSubmit)
 })
 
 
-//  Fetch Functions
 
-
-function fetchPartyPlans(){
-    fetch('http://localhost:3000/party_plans')
-    .then(res => res.json())
-    .then(partyPlanLister)
-}
-
-
-
-
-
-function addParties(response){
-    response.data.forEach( party => {
-        addPartyToDom(party)
-         })
-}
-
-function itemLister(response) {
-    response.data.forEach(item => {
-        itemList.push(item)
-    })
-}
-
-function partyPlanLister(response) {
-    response.forEach(plan => {
-        planList.push(plan)
-    })
-}
-
-function collectPartyItems(p){
-    let partyItemIds = planList.map(plan => {
-         if (plan.party_id === p){
-             return plan.item_id
-         }})
-         
-        partyItemIds = partyItemIds.filter( Number)
-
-        let partyItemsKV = []
-        partyItemIds.forEach(id => {
-             let idMatch = itemList.find(item => parseInt(item.id) === id)
-                partyItemsKV.push(idMatch)
-         })
-return partyItemsKV
-
- }
-
-
- 
 
 // function handleFormSubmit(e){
 //     e.preventDefault()
@@ -117,36 +65,3 @@ return partyItemsKV
 
 // Dom Functions
 
-// function addPartyToDom(party){
-//     let h2 = document.createElement('h2')
-//     h2.setAttribute('class', 'party')
-//     h2.setAttribute('id', `Party ${party.id}`)
-//     h2.innerText = party.attributes.title
-
-//     let partyItems = collectPartyItems(parseInt(party.id));
-//     partyItems.forEach(i => {
-        
-//         let newItem = document.createElement('p')
-//         let itemCategory = document.createElement('h3')
-//         itemCategory.hidden = true
-//         newItem.setAttribute('class', 'party-item')
-//         newItem.innerText = i.attributes.name
-//         itemCategory.innerText = `${i.attributes.categories[0].name}:`
-//         h2.appendChild(itemCategory)
-//         itemCategory.appendChild(newItem)
-//     })
-
-//     let divCard = document.createElement('div')
-//     divCard.setAttribute('class', 'card')
-//     divCard.append(h2)
-//     partyList.append(divCard)
-//     h2.addEventListener("click", expandParties); 
-
-//     function expandParties(){
-//        let hiders = h2.childNodes
-//        hiders.forEach(i => {
-//            i.hidden = !i.hidden
-//        })
-//     }
-    
-// }
