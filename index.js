@@ -15,10 +15,12 @@ const costumes = document.getElementById('item-costumes')
 const itemList = []
 const planList = []
 
+const itemsAdapter = new ItemsAdapter
+
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     
-    fetchItems()
+    itemsAdapter.fetchItems()
     fetchPartyPlans()
     fetchParties()
     partyForm.addEventListener('submit', handleFormSubmit)
@@ -39,11 +41,7 @@ function fetchPartyPlans(){
     .then(partyPlanLister)
 }
 
-function fetchItems(){
-    fetch('http://localhost:3000/items')
-    .then(res => res.json())
-    .then(itemLister)
-}
+
 
 
 
@@ -116,7 +114,7 @@ function handleFormSubmit(e){
         addPartyToDom(json.data)
         
     })
-}
+
 
 // Dom Functions
 
