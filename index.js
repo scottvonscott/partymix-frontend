@@ -84,24 +84,23 @@ return partyItemsKV
 
 function handleFormSubmit(e){
     e.preventDefault()
-    let newPartyItemsObj = {
-        main_courses: {category_id: 1, name: mainCourse.value},
-        snacks: {category_id: 2, name: snacks.value},
-        alcoholic_drinks: {category_id: 2, name: alcoholicDrinks.value},
+    // let newPartyItemsObj = {
+    //     main_courses: {category_id: 1, name: mainCourse.value},
+    //     snacks: {category_id: 2, name: snacks.value},
+    //     alcoholic_drinks: {category_id: 2, name: alcoholicDrinks.value},
 
         // this is where I stopped!!!!! probably do this in OO
 
-        music: music.value,
-        movies_tv: moviesTV.value,
-        games: games.value,
-        decorations: decorations.value,
-        costumes: costumes.value
+        // music: music.value,
+        // movies_tv: moviesTV.value,
+        // games: games.value,
+        // decorations: decorations.value,
+        // costumes: costumes.value
     }
     let newPartyObj = {
         title: partyTitle.value, 
         items: newPartyItemsObj 
     }
-    debugger
     let configObj = {
         method: 'POST',
         headers: {
@@ -139,6 +138,7 @@ function addPartyToDom(party){
         h2.appendChild(itemCategory)
         itemCategory.appendChild(newItem)
     })
+
     let divCard = document.createElement('div')
     divCard.setAttribute('class', 'card')
     divCard.append(h2)
