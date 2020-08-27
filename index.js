@@ -9,9 +9,10 @@ const planList = []
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-    fetchParties()
+    
     fetchItems()
     fetchPartyPlans()
+    fetchParties()
     partyForm.addEventListener('submit', handleFormSubmit)
 })
 
@@ -36,6 +37,8 @@ function fetchItems(){
     .then(itemLister)
 }
 
+
+
 function addParties(response){
     response.data.forEach( party => {
         addPartyToDom(party)
@@ -54,7 +57,7 @@ function partyPlanLister(response) {
     })
 }
 
-function planIndex(p){
+function collectPartyItems(p){
     let partyItemIds = planList.map(plan => {
          if (plan.party_id === p){
              return plan.item_id
@@ -65,9 +68,10 @@ function planIndex(p){
         let partyItemsKV = []
         partyItemIds.forEach(id => {
              let idMatch = itemList.find(item => parseInt(item.id) === id)
-                partyItemsKV.push(idMatch.attributes.name)
+                partyItemsKV.push(idMatch)
          })
 return partyItemsKV
+
  }
 
 function handleFormSubmit(e){
@@ -101,13 +105,16 @@ function addPartyToDom(party){
     h2.setAttribute('id', `Party ${party.id}`)
     h2.innerText = party.attributes.title
 
-    let partyItems = planIndex(parseInt(party.id));
+    let partyItems = collectPartyItems(parseInt(party.id));
     partyItems.forEach(i => {
+        
         let newItem = document.createElement('p')
+        let itemCategory = document.createElement('h3')
         newItem.setAttribute('class', 'party-item')
-        newItem.innerText = i
-        newItem.hidden = true
-        h2.appendChild(newItem)
+        newItem.innerText = i.attributes.name
+        itemCategory.innerText = i.attributes.categories[0].name
+        h2.appendChild(itemCategory)
+        itemCategory.appendChild(newItem)
     })
     let divCard = document.createElement('div')
     divCard.setAttribute('class', 'card')
