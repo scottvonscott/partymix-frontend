@@ -106,13 +106,20 @@ function addPartyToDom(party){
     divCard.append(h2)
     partyList.append(divCard)
     h2.addEventListener("click", expandParties); 
+
+    function expandParties(e) {
+    
+        alert("You clicked it!")
+        let clickedParty = e.target
+        
+        let partyItems = planIndex(parseInt(clickedParty.id));
+        partyItems.forEach(i => {
+            let newItem = document.createElement('p')
+            newItem.innerText = i
+            h2.appendChild(newItem)
+        })
+    }
     
 }
 
-function expandParties(e) {
-    
-    alert("You clicked it!")
-    let clickedParty = e.target
-    let newItem = document.createElement('p')
-    planIndex(parseInt(clickedParty.id));
-}
+
