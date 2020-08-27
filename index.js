@@ -55,17 +55,21 @@ function partyPlanLister(response) {
 }
 
 function planIndex(p){
-    let partyItemsIds = planList.map(plan => {
+    let partyItemIds = planList.map(plan => {
          if (plan.party_id === p){
              return plan.item_id
          }})
-        partyItemIds = partyItemsIds.filter( Number)
-        partyItemsKV = itemList.map(item => {
-            partyItemIds.forEach(id => {
-            if id === item.id{
-            return {item.id: item.attribute.name}
-     }})
+         
+        partyItemIds = partyItemIds.filter( Number)
+
+        let partyItemsKV = []
+        partyItemIds.forEach(id => {
+             let idMatch = itemList.find(item => parseInt(item.id) === id)
+                partyItemsKV.push(idMatch.attributes.name)
+         })
+return partyItemsKV
  }
+
 function handleFormSubmit(e){
     e.preventDefault()
 
@@ -110,6 +114,5 @@ function expandParties(e) {
     alert("You clicked it!")
     let clickedParty = e.target
     let newItem = document.createElement('p')
-    debugger
-    // let partyItems = itemList.map(i => )
+    planIndex(parseInt(clickedParty.id));
 }
