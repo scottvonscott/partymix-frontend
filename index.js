@@ -110,9 +110,10 @@ function addPartyToDom(party){
         
         let newItem = document.createElement('p')
         let itemCategory = document.createElement('h3')
+        itemCategory.hidden = true
         newItem.setAttribute('class', 'party-item')
         newItem.innerText = i.attributes.name
-        itemCategory.innerText = i.attributes.categories[0].name
+        itemCategory.innerText = `${i.attributes.categories[0].name}:`
         h2.appendChild(itemCategory)
         itemCategory.appendChild(newItem)
     })
