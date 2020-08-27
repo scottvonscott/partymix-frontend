@@ -1,7 +1,7 @@
 
 // Variables
 
-const partyList = document.getElementById('party-list')
+
 const partyForm = document.getElementById('party-form')
 const partyTitle = document.getElementById('party-title')
 const mainCourse = document.getElementById('item-main-course')
@@ -16,24 +16,20 @@ const itemList = []
 const planList = []
 
 const itemsAdapter = new ItemsAdapter
+const partiesAdapter = new PartiesAdapter
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     
     itemsAdapter.fetchItems()
+    partiesAdapter.fetchParties()
     // fetchPartyPlans()
-    // fetchParties()
     // partyForm.addEventListener('submit', handleFormSubmit)
 })
 
 
 //  Fetch Functions
 
-function fetchParties(){
-    fetch('http://localhost:3000/parties')
-    .then(res => res.json())
-    .then(addParties)
-}
 
 function fetchPartyPlans(){
     fetch('http://localhost:3000/party_plans')

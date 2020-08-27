@@ -13,7 +13,7 @@ class ItemsAdapter{
         .then(json => {
             json.data.forEach((el)=>{
                 let item = new Item(el.attributes)
-                item.attachToDom()
+                // item.attachToDom()
             })
         })
     }
