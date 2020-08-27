@@ -3,22 +3,19 @@
 
 class ItemsAdapter{
     constructor(){
-        this.baseUrl = "http://localhose:3000/items"
+        this.baseUrl = "http://localhost:3000/items"
     }
 
 
-    function fetchItems(){
+    fetchItems(){
         fetch(this.baseUrl)
         .then(res => res.json())
         .then(json => {
-            debugger
+            json.data.forEach((el)=>{
+                let item = new Item(el.attributes)
+                item.attachToDom()
+            })
         })
     }
+
 }
-
-
-
-// function fetchItems(){
-//     fetch(this.baseUrl)
-//     .then(res => res.json())
-//     .then(itemLister)
