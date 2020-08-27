@@ -4,6 +4,14 @@
 const partyList = document.getElementById('party-list')
 const partyForm = document.getElementById('party-form')
 const partyTitle = document.getElementById('party-title')
+const mainCourse = document.getElementById('item-main-course')
+const snacks = document.getElementById('item-snacks')
+const drinks = document.getElementById('item-drinks')
+const music = document.getElementById('item-music')
+const moviesTV = document.getElementById('item-movies-tv')
+const games = document.getElementById('item-games')
+const decorations = document.getElementById('item-decorations')
+const costumes = document.getElementById('item-costumes')
 const itemList = []
 const planList = []
 
@@ -76,7 +84,7 @@ return partyItemsKV
 
 function handleFormSubmit(e){
     e.preventDefault()
-
+    debugger
     let newPartyObj = {
         title: partyTitle.value,
     }
