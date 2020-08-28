@@ -76,32 +76,12 @@ handleListClick = (e) => {
      }
  }
 
+ updateItemOnDom({price,name,description}){
+    // let liItem = document.querySelector(`#item-${item.id} li`)
+    this.price = price
+    this.description = description
+    this.name = name
+    this.fullRender()
 }
 
-// function addPartyToDom(party){
-//     let h2 = document.createElement('h2')
-//     h2.setAttribute('class', 'party')
-//     h2.setAttribute('id', `Party ${party.id}`)
-//     h2.innerText = party.attributes.title
-
-//     let partyItems = collectPartyItems(parseInt(party.id));
-//     partyItems.forEach(i => {
-        
-//         let newItem = document.createElement('p')
-//         let itemCategory = document.createElement('h3')
-//         itemCategory.hidden = true
-//         newItem.setAttribute('class', 'party-item')
-//         newItem.innerText = i.attributes.name
-//         itemCategory.innerText = `${i.attributes.categories[0].name}:`
-//         h2.appendChild(itemCategory)
-//         itemCategory.appendChild(newItem)
-//     })
-
-//     let divCard = document.createElement('div')
-//     divCard.setAttribute('class', 'card')
-//     divCard.append(h2)
-//     partyList.append(divCard)
-//     h2.addEventListener("click", expandParties); 
-
-    
-// }
+}
