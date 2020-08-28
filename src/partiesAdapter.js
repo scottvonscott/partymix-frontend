@@ -21,9 +21,9 @@ class PartiesAdapter{
     //     const price = document.getElementById(`update-price-${itemId}`).value
     //     const description = document.getElementById(`update-description-${itemId}`).value
     //     const name = document.getElementById(`update-name-${itemId}`).value
-            let itemsObj = {
+            // let itemsObj = {
 
-            }
+            // }
     //     let partyObj = {
     //         title: title,
     //         items: itemsObj

@@ -16,6 +16,10 @@ class Party{
     Party.all.push(this)
 }
 
+addEventListeners(){
+    this.element.addEventListener('click', this.handleListClick)
+}
+
 attachToDom(){
     this.partyList.append(this.renderParty())
     
