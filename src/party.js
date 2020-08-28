@@ -22,6 +22,7 @@ addEventListeners(){
 
 attachToDom(){
     this.partyList.append(this.renderParty())
+    this.addEventListeners()
     
 }
 
@@ -34,7 +35,7 @@ renderParty(){
         let itemEle = document.createElement('li')
         let itemCat = document.createElement('h3')
         
-        itemCat.innerText = i.category
+        itemCat.innerText = `${i.category}:`
         itemCat.hidden = true
         itemEle.innerText = i.name
         this.element.append(itemCat)
@@ -65,28 +66,21 @@ renderParty(){
 handleListClick = (e) => {
     
     if (e.target.className === "delete"){
-        let id = e.target.dataset.id
-         this.element.remove()
-    } else if(e.target.className === 'update'){
         debugger
-         let itemId = e.target.dataset.id
-         e.target.className = "save"
-         e.target.innerText = "Save"
-         this.addUpdateFields(partyId)
-     } else if(e.target.className === 'save'){
-         let itemId = e.target.dataset.id
-         e.target.className = "update"
-         e.target.innerText = "Update"
-         itemsAdapter.sendPatchRequest(partyId)
-     }
+        let id = e.target.dataset.id
+        partiesAdapter.deleteParty(id)
+         this.element.remove()
+    } 
+    // else if(e.target.className === 'update'){
+    //      let itemId = e.target.dataset.id
+    //      e.target.className = "save"
+    //      e.target.innerText = "Save"
+    //      this.addUpdateFields(partyId)
+    //  } else if(e.target.className === 'save'){
+    //      let itemId = e.target.dataset.id
+    //      e.target.className = "update"
+    //      e.target.innerText = "Update"
+    //      itemsAdapter.sendPatchRequest(partyId)
+    //  }
  }
-
-//  updateItemOnDom({price,name,description}){
-//     // let liItem = document.querySelector(`#item-${item.id} li`)
-//     this.price = price
-//     this.description = description
-//     this.name = name
-//     this.fullRender()
-// }
-
 }
