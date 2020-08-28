@@ -12,12 +12,11 @@ class Party{
     this.element = document.createElement('div')
     this.element.id = `party-${this.id}`
     this.partyList = document.getElementById('party-list')
-    this.element.addEventListener('click', this.handleListClick)
     Party.all.push(this)
 }
 
 addEventListeners(){
-    this.element.addEventListener('click', this.handleListClick)
+    this.element.addEventListener('click', this.handleClick)
 }
 
 attachToDom(){
@@ -44,6 +43,7 @@ renderParty(){
     let deleteBtn = document.createElement('button')
     let updateBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'delete')
+    deleteBtn.setAttribute('data-id', this.id)
     deleteBtn.innerText = 'Delete'
     deleteBtn.hidden = true
     updateBtn.setAttribute('class', 'update')
@@ -63,24 +63,11 @@ renderParty(){
 }
 
 
-handleListClick = (e) => {
-    
+handleClick = (e) => {
     if (e.target.className === "delete"){
-        debugger
-        let id = e.target.dataset.id
+        let id = parseInt(e.target.dataset.id)
         partiesAdapter.deleteParty(id)
          this.element.remove()
     } 
-    // else if(e.target.className === 'update'){
-    //      let itemId = e.target.dataset.id
-    //      e.target.className = "save"
-    //      e.target.innerText = "Save"
-    //      this.addUpdateFields(partyId)
-    //  } else if(e.target.className === 'save'){
-    //      let itemId = e.target.dataset.id
-    //      e.target.className = "update"
-    //      e.target.innerText = "Update"
-    //      itemsAdapter.sendPatchRequest(partyId)
-    //  }
  }
 }

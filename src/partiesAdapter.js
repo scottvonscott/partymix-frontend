@@ -5,7 +5,6 @@ class PartiesAdapter{
         this.baseUrl = "http://localhost:3000/parties"
     }
 
-
     fetchParties(){
         fetch(this.baseUrl)
         .then(res => res.json())
@@ -56,7 +55,7 @@ class PartiesAdapter{
         body: JSON.stringify(newPartyObj)
     }
 
-    fetch('http://localhost:3000/parties', configObj)
+    fetch(this.baseUrl, configObj)
     .then(res => res.json())
     .then(json => {
         let party = new Party(json.data.attributes)
@@ -65,46 +64,8 @@ class PartiesAdapter{
     })
     // partyForm.reset()
 }
-    // UPDATE
-    // sendPatchRequest(itemId){
-    //     const price = document.getElementById(`update-price-${itemId}`).value
-    //     const description = document.getElementById(`update-description-${itemId}`).value
-    //     const name = document.getElementById(`update-name-${itemId}`).value
-            // let itemsObj = {
-
-            // }
-    //     let partyObj = {
-    //         title: title,
-    //         items: itemsObj
-    //     }
-
-    //     let configObj = {
-    //         method: 'PATCH',
-    //         headers: {
-    //             "Content-Type": "application/json",
-    //             "Accepts": "application/json"
-    //         },
-    //         body: JSON.stringify(partyObj)
-    //     }
-
-    //     fetch(this.baseUrl + `/${partyId}`, configObj)
-    //     .then(res => res.json())
-    //     .then(response => {
-    //         let item = Item.all.find((i) => i.id === response.data.attributes.id )
-    //         item.updateItemOnDom(response.data.attributes)
-            
-    //     })
-    //     // remove form
-
-    //     let form = document.getElementById(`update-form-${itemId}`)
-    //     form.remove()
-    // }
-
-    
-
-    DELETE
+ 
     deleteParty(id){
-        // remove from db
             let configObj = {
                 method: 'DELETE',
                 headers: {
@@ -112,8 +73,7 @@ class PartiesAdapter{
                     Accept: "application/json"
                 }
             }
-    
-            fetch(`http://localhost:3000/parties/${id}`, configObj)
+            fetch(this.baseUrl + `/${id}`, configObj)
             .then(res => res.json())
             .then(json => {
                 alert(json.message)
