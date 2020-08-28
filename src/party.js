@@ -76,12 +76,12 @@ handleListClick = (e) => {
      }
  }
 
- updateItemOnDom({price,name,description}){
-    // let liItem = document.querySelector(`#item-${item.id} li`)
-    this.price = price
-    this.description = description
-    this.name = name
-    this.fullRender()
-}
+//  updateItemOnDom({price,name,description}){
+//     // let liItem = document.querySelector(`#item-${item.id} li`)
+//     this.price = price
+//     this.description = description
+//     this.name = name
+//     this.fullRender()
+// }
 
 }

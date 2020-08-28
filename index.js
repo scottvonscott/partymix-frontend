@@ -1,7 +1,6 @@
 
 // Variables
 
-
 const partyForm = document.getElementById('party-form')
 const partyTitle = document.getElementById('party-title')
 const mainCourse = document.getElementById('item-main-course')
@@ -18,17 +17,7 @@ const partiesAdapter = new PartiesAdapter
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-    
     itemsAdapter.fetchItems()
     partiesAdapter.fetchParties()
-    // partyForm.addEventListener('submit', handleFormSubmit)
+    partyForm.addEventListener('submit', handleFormSubmit)
 })
-
-
-
-
-
-
-
-// Dom Functions
-
