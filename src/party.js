@@ -63,20 +63,21 @@ renderParty(){
 
 
 handleListClick = (e) => {
-
+    
     if (e.target.className === "delete"){
         let id = e.target.dataset.id
-         deleteItem(id)
+         this.element.remove()
     } else if(e.target.className === 'update'){
+        debugger
          let itemId = e.target.dataset.id
          e.target.className = "save"
          e.target.innerText = "Save"
-         addUpdateItemFields(itemId)
+         this.addUpdateFields(partyId)
      } else if(e.target.className === 'save'){
          let itemId = e.target.dataset.id
          e.target.className = "update"
          e.target.innerText = "Update"
-         itemsAdapter.sendPatchRequest(itemId)
+         itemsAdapter.sendPatchRequest(partyId)
      }
  }
 

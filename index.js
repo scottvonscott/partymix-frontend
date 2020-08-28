@@ -19,5 +19,5 @@ document.addEventListener('DOMContentLoaded', () => {
     itemsAdapter.fetchItems()
     partiesAdapter.fetchParties()
     const partyForm = document.getElementById('party-form')
-
+    partyForm.addEventListener('submit', partiesAdapter.createParty)
 })
