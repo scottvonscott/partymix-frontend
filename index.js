@@ -23,23 +23,22 @@ document.addEventListener('DOMContentLoaded', () => {
     const partyForm = document.getElementById('party-form')
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
+    categoriesDropdown.addEventListener("change", chooseCat);
 })
-
-function myFunction() {
-    var x = document.getElementById("mySelect").value;
-    document.getElementById("demo").innerHTML = "You selected: " + x;
-}
-
 
 function chooseCat() {
    let catChoice = categoriesDropdown.value
+   let nextInput = document.querySelector('input')
+
+   nextInput.id = `item-${catChoice}`
+
    
 }
 
 function addItemField(){
-   let itemField = document.getElementById('new-party-item')
-   itemField.insertAdjacentHTML('afterend', 
-   `<br><label for="categories-dropdown">Item Category:</label>
+   let itemEnd = document.getElementById('form-anchor')
+   itemEnd.insertAdjacentHTML('afterend', 
+   `<br><br><label for="categories-dropdown">Item Category:</label>
    <select name="categories" id="categories-dropdown">
    <option value="mainCourse">Main Courses</option>
    <option value="snack">Snacks</option>
@@ -52,6 +51,7 @@ function addItemField(){
    <option value="costumes">Costumes</option>
    </select><br>
    <label for="new-item">Item Name:</label>
-   <input type="text" name="new-party-item" id="new-party-item">`)
+   <input type="text" name="new-party-item" id="new-party-item">
+   <input type="hidden" id="form-anchor" name="form-anchor">`)
 
 }

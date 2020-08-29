@@ -25,8 +25,8 @@
             <input type="text" name="title" id="party-title"><br><br>
 
 
-            <label for="categories-dropdown">Item Category:</label>
-                <select name="categories" id="categories-dropdown" onchange="chooseCat()">
+            <br><label for="categories-dropdown">Item Category:</label>
+                <select name="categories" id="categories-dropdown"onchange="chooseCat()">
                 <option value="mainCourse">Main Courses</option>
                 <option value="snack">Snacks</option>
                 <option value="non-alcoholic-drinks">Non-Alcoholic Drinks</option>
@@ -38,7 +38,8 @@
                 <option value="costumes">Costumes</option>
                 </select><br>
             <label for="new-item">Item Name:</label>
-            <input type="text" name="new-party-item" id="new-party-item"><br><br>
+            <input type="text" name="new-party-item" id="new-party-item">
+            <input type="hidden" id="form-anchor" name="form-anchor"><br><br>
             <button class"button" id="additional-item-button" type="button" name="button"> Add Another Item!</button>
             <!-- <label for="item-snacks">Snacks:</label>
             <input type="text" name="item-snacks" id="item-snacks"><br><br>
