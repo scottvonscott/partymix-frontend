@@ -20,6 +20,8 @@ class PartiesAdapter{
     createParty(e){
     e.preventDefault()
 
+    
+
     const title = document.getElementById('party-title').value
     const mainCourse = document.getElementById('item-main-course').value
     const snacks = document.getElementById('item-snacks').value

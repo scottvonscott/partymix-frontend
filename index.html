@@ -10,35 +10,37 @@
     <body>
         
         <h1> PartyMix!</h1>
-        <!-- <div class="sidenav"> -->
         <h3>Choose A Party Template!</h3>
 
         <ul id="party-list">
         </ul>
-    <!-- </div> -->
         <h3>- Or -</h3>
 
         <h3>Create A Party!</h3>
 
         <form id="party-form">
+
+            <!-- party title text field -->
             <label for="party-title">Title:</label>
             <input type="text" name="title" id="party-title"><br><br>
 
-
+            <!-- first party category choice dropdown -->
             <br><label for="categories-dropdown">Item Category:</label>
-                <select name="categories" id="categories-dropdown"onchange="chooseCat()">
-                <option value="mainCourse">Main Courses</option>
-                <option value="snack">Snacks</option>
-                <option value="non-alcoholic-drinks">Non-Alcoholic Drinks</option>
-                <option value="alcoholic-drinks">Alcoholic Drinks</option>
-                <option value="movies-TV">Movies & TV</option>
-                <option value="music">Music</option>
-                <option value="games">Games</option>
-                <option value="decorations">Decorations</option>
-                <option value="costumes">Costumes</option>
+                <select class="categories-dropdown" name="categories">
+                <option value="category_id: 1">Main Courses</option>
+                <option value="category_id: 2">Snacks</option>
+                <option value="category_id: 3">Non-Alcoholic Drinks</option>
+                <option value="category_id: 4">Alcoholic Drinks</option>
+                <option value="category_id: 5">Movies & TV</option>
+                <option value="category_id: 5">Music</option>
+                <option value="category_id: 6">Games</option>
+                <option value="category_id: 7">Decorations</option>
+                <option value="category_id: 8">Costumes</option>
                 </select><br>
+
+                <!-- first party item text field -->
             <label for="new-item">Item Name:</label>
-            <input type="text" name="new-party-item" id="new-party-item">
+            <input type="text" class="new-party-item "name="new-party-item">
             <input type="hidden" id="form-anchor" name="form-anchor"><br><br>
             <button class"button" id="additional-item-button" type="button" name="button"> Add Another Item!</button>
             <!-- <label for="item-snacks">Snacks:</label>
