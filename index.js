@@ -25,14 +25,33 @@ document.addEventListener('DOMContentLoaded', () => {
     addItemFieldButton.addEventListener('click', addItemField)
 })
 
+function myFunction() {
+    var x = document.getElementById("mySelect").value;
+    document.getElementById("demo").innerHTML = "You selected: " + x;
+}
+
+
+function chooseCat() {
+   let catChoice = categoriesDropdown.value
+   
+}
+
 function addItemField(){
    let itemField = document.getElementById('new-party-item')
    itemField.insertAdjacentHTML('afterend', 
    `<br><label for="categories-dropdown">Item Category:</label>
-                <select name="categories" id="categories-dropdown">
-                <option value="mainCourse">Main Courses</option>
-                <option value="snack">Snacks</option>
-                <option value="alcoholic-drinks">Alcoholic Drinks</option>
-                </select><br><input type="text" name="new-party-item" id="new-party-item">`)
+   <select name="categories" id="categories-dropdown">
+   <option value="mainCourse">Main Courses</option>
+   <option value="snack">Snacks</option>
+   <option value="non-alcoholic-drinks">Non-Alcoholic Drinks</option>
+   <option value="alcoholic-drinks">Alcoholic Drinks</option>
+   <option value="movies-TV">Movies & TV</option>
+   <option value="music">Music</option>
+   <option value="games">Games</option>
+   <option value="decorations">Decorations</option>
+   <option value="costumes">Costumes</option>
+   </select><br>
+   <label for="new-item">Item Name:</label>
+   <input type="text" name="new-party-item" id="new-party-item">`)
 
 }

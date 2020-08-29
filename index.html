@@ -26,12 +26,18 @@
 
 
             <label for="categories-dropdown">Item Category:</label>
-                <select name="categories" id="categories-dropdown">
+                <select name="categories" id="categories-dropdown" onchange="chooseCat()">
                 <option value="mainCourse">Main Courses</option>
                 <option value="snack">Snacks</option>
+                <option value="non-alcoholic-drinks">Non-Alcoholic Drinks</option>
                 <option value="alcoholic-drinks">Alcoholic Drinks</option>
+                <option value="movies-TV">Movies & TV</option>
+                <option value="music">Music</option>
+                <option value="games">Games</option>
+                <option value="decorations">Decorations</option>
+                <option value="costumes">Costumes</option>
                 </select><br>
-            <label for="new-item">Name your item(s):</label>
+            <label for="new-item">Item Name:</label>
             <input type="text" name="new-party-item" id="new-party-item"><br><br>
             <button class"button" id="additional-item-button" type="button" name="button"> Add Another Item!</button>
             <!-- <label for="item-snacks">Snacks:</label>
