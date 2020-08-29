@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const partyForm = document.getElementById('party-form')
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
-    categoriesDropdown.addEventListener("change", chooseCat);
+   //  categoriesDropdown.addEventListener("change", chooseCat);
 })
 
 // function chooseCat() {
@@ -37,15 +37,15 @@ function addItemField(){
    itemEnd.insertAdjacentHTML('afterend', 
    `<br><br><label for="categories-dropdown">Item Category:</label>
    <select class="categories-dropdown" name="categories">
-   <option value="mainCourse">Main Courses</option>
-   <option value="snack">Snacks</option>
-   <option value="non-alcoholic-drinks">Non-Alcoholic Drinks</option>
-   <option value="alcoholic-drinks">Alcoholic Drinks</option>
-   <option value="movies-TV">Movies & TV</option>
-   <option value="music">Music</option>
-   <option value="games">Games</option>
-   <option value="decorations">Decorations</option>
-   <option value="costumes">Costumes</option>
+   <option value="1">Main Courses</option>
+   <option value="2">Snacks</option>
+   <option value="3">Non-Alcoholic Drinks</option>
+   <option value="4">Alcoholic Drinks</option>
+   <option value="5">Movies & TV</option>
+   <option value="5">Music</option>
+   <option value="6">Games</option>
+   <option value="7">Decorations</option>
+   <option value="8">Costumes</option>
    </select><br>
    <label for="new-item">Item Name:</label>
    <input type="text" class="new-party-item" name="new-party-item">

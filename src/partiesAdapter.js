@@ -17,36 +17,29 @@ class PartiesAdapter{
     }
 
     // CREATE
+
+   
+
     createParty(e){
-    e.preventDefault()
+    e.preventDefault();
+        let items = document.querySelectorAll('.new-party-item');
+        let categories = document.querySelectorAll('.categories-dropdown');
 
-    
+        let dict = {};
 
-    const title = document.getElementById('party-title').value
-    const mainCourse = document.getElementById('item-main-course').value
-    const snacks = document.getElementById('item-snacks').value
-    const alcoholicDrinks = document.getElementById('item-alcoholic-drinks').value
-    const music = document.getElementById('item-music').value
-    const moviesTV = document.getElementById('item-movies-tv').value
-    const games = document.getElementById('item-games').value
-    const decorations = document.getElementById('item-decorations').value
-    const costumes = document.getElementById('item-costumes').value
+        for (let i = 0; i < items.length; i++) {
+            let item = items[i].value;
+            let category = categories[i].value;
+            dict[category] = item;
+        }
 
 
-    let newPartyItemsObj = [
-        {name: mainCourse, category_id: 1},
-        {name:snacks, category_id: 2},
-        {name: alcoholicDrinks, category_id: 4},
-        {name: music, category_id: 5},
-        {name: moviesTV, category_id: 6},
-        {name: games, category_id: 7},
-        {name: decorations, category_id: 8},
-        {name: costumes, category_id: 9}
-    ]
+    const title = document.getElementById('party-title').value;
+
   
     let newPartyObj = {
         title, 
-        items: newPartyItemsObj 
+        items: dict 
     }
     let configObj = {
         method: 'POST',
@@ -56,8 +49,8 @@ class PartiesAdapter{
         },
         body: JSON.stringify(newPartyObj)
     }
-
-    fetch(this.baseUrl, configObj)
+    
+    fetch(partiesAdapter.baseUrl, configObj)
     .then(res => res.json())
     .then(json => {
         let party = new Party(json.data.attributes)
