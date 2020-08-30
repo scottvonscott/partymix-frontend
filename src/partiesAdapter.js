@@ -30,7 +30,12 @@ class PartiesAdapter{
         for (let i = 0; i < items.length; i++) {
             let item = items[i].value;
             let category = categories[i].value;
-            dict[category] = item;
+            if (dict[category]){
+                dict[category].push(item)
+            } else{
+            dict[category] = []
+            dict[category].push(item)
+            }
         }
 
 
@@ -49,7 +54,7 @@ class PartiesAdapter{
         },
         body: JSON.stringify(newPartyObj)
     }
-    
+
     fetch(partiesAdapter.baseUrl, configObj)
     .then(res => res.json())
     .then(json => {
