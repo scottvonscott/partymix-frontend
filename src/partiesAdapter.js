@@ -31,7 +31,7 @@ class PartiesAdapter{
         for (let i = 0; i < items.length; i++) {
             let item = items[i].value;
             let category = categories[i].value;
-            
+
             if (dict[category]){
                 dict[category].push(item)
                 newItems.push(dict)
@@ -68,7 +68,8 @@ class PartiesAdapter{
         party.attachToDom()
         
     })
-    // partyForm.reset()
+    // partyForm.remove(additionalFields)
+    partyForm.reset()
 }
  
     deleteParty(id){
