@@ -17,37 +17,28 @@ class PartiesAdapter{
     }
 
     // CREATE
-
-   
-
-    createParty(e){
+  createParty(e){
     e.preventDefault();
         let items = document.querySelectorAll('.new-party-item');
         let categories = document.querySelectorAll('.categories-dropdown');
-
         let dict = {};
         let newItems = []
 
         for (let i = 0; i < items.length; i++) {
             let item = items[i].value;
             let category = categories[i].value;
-
             if (dict[category]){
                 dict[category].push(item)
                 newItems.push(dict)
             } else{
-            dict[category] = []
-            dict[category].push(item)
-            newItems.push(dict)
+                dict[category] = []
+                dict[category].push(item)
+                newItems.push(dict)
             }
-
-    
         }
-
 
     const title = document.getElementById('party-title').value;
 
-  
     let newPartyObj = {
         title, 
         newItems

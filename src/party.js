@@ -1,5 +1,3 @@
-
-
 class Party{
 
     static all = []
@@ -41,15 +39,15 @@ renderParty(){
         itemCat.append(itemEle)
     })
     let deleteBtn = document.createElement('button')
-    let updateBtn = document.createElement('button')
+    // let updateBtn = document.createElement('button')
     deleteBtn.setAttribute('class', 'delete')
     deleteBtn.setAttribute('data-id', this.id)
     deleteBtn.innerText = 'Delete'
     deleteBtn.hidden = true
-    updateBtn.setAttribute('class', 'update')
-    updateBtn.innerText = "Update"
-    updateBtn.hidden = true
-    this.element.append(deleteBtn, updateBtn)
+    // updateBtn.setAttribute('class', 'update')
+    // updateBtn.innerText = "Update"
+    // updateBtn.hidden = true
+    this.element.append(deleteBtn)
     this.element.addEventListener("click", expandParties)
 
     function expandParties(){
@@ -58,10 +56,8 @@ renderParty(){
             i.hidden = !i.hidden
         })
      }
-
     return this.element
 }
-
 
 handleClick = (e) => {
     if (e.target.className === "delete"){

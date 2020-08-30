@@ -1,7 +1,5 @@
 
 // Variables
-
-const partyTitle = document.getElementById('party-title')
 const addItemFieldButton = document.getElementById('additional-item-button')
 const categoriesDropdown = document.getElementById('categories-dropdown')
 const partyForm = document.getElementById('party-form')
@@ -12,7 +10,6 @@ const partiesAdapter = new PartiesAdapter
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
-    itemsAdapter.fetchItems()
     partiesAdapter.fetchParties()
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
