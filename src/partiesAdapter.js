@@ -26,16 +26,22 @@ class PartiesAdapter{
         let categories = document.querySelectorAll('.categories-dropdown');
 
         let dict = {};
+        let newItems = []
 
         for (let i = 0; i < items.length; i++) {
             let item = items[i].value;
             let category = categories[i].value;
+            
             if (dict[category]){
                 dict[category].push(item)
+                newItems.push(dict)
             } else{
             dict[category] = []
             dict[category].push(item)
+            newItems.push(dict)
             }
+
+    
         }
 
 
@@ -44,7 +50,7 @@ class PartiesAdapter{
   
     let newPartyObj = {
         title, 
-        items: dict 
+        newItems
     }
     let configObj = {
         method: 'POST',
