@@ -23,9 +23,9 @@
             <!-- party title text field -->
             <label for="party-title">Title:</label>
             <input type="text" name="title" id="party-title"><br><br>
-
+            <input type="hidden" id="form-anchor" name="form-anchor">
             <!-- first party category choice dropdown -->
-            <br><label for="categories-dropdown">Item Category:</label>
+            <label for="categories-dropdown">Item Category:</label>
                 <select class="categories-dropdown" name="categories">
                 <option value="1">Main Courses</option>
                 <option value="2">Snacks</option>
@@ -40,23 +40,9 @@
 
                 <!-- first party item text field -->
             <label for="new-item">Item Name:</label>
-            <input type="text" class="new-party-item "name="new-party-item">
-            <input type="hidden" id="form-anchor" name="form-anchor"><br><br>
-            <button class"button" id="additional-item-button" type="button" name="button"> Add Another Item!</button>
-            <!-- <label for="item-snacks">Snacks:</label>
-            <input type="text" name="item-snacks" id="item-snacks"><br><br>
-            <label for="item-alcoholic-drinks">Alcoholic Drinks:</label>
-            <input type="text" name="item-drinks" id="item-alcoholic-drinks"><br><br>
-            <label for="item-music">Music:</label>
-            <input type="text" name="item-music" id="item-music"><br><br>
-            <label for="item-movies-tv">Movies/TV:</label>
-            <input type="text" name="item-movies-tv" id="item-movies-tv"><br><br>
-            <label for="item-games">Games:</label>
-            <input type="text" name="item-games" id="item-games"><br><br>
-            <label for="item-decorations">Decorations:</label>
-            <input type="text" name="item-decorations" id="item-decorations"><br><br>
-            <label for="item-costumes">Costumes:</label>
-            <input type="text" name="item-costumes" id="item-costumes"><br><br> -->
+            <input type="text" class="new-party-item "name="new-party-item"><br>
+            
+            <br><button class"button" id="additional-item-button" type="button" name="button"> Add Another Item!</button>
             <input type="submit" value="Create Party">
         </form>
 
