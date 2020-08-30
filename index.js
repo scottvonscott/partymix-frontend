@@ -5,7 +5,7 @@ const partyTitle = document.getElementById('party-title')
 const addItemFieldButton = document.getElementById('additional-item-button')
 const categoriesDropdown = document.getElementById('categories-dropdown')
 const partyForm = document.getElementById('party-form')
-const additionalFields = document.getElementsByTagName('additional-form-fields') 
+const additionalFields = document.querySelectorAll('.additional-form-fields') 
 
 const itemsAdapter = new ItemsAdapter
 const partiesAdapter = new PartiesAdapter
@@ -20,8 +20,8 @@ document.addEventListener('DOMContentLoaded', () => {
 
 function addItemField(){
    let itemEnd = document.getElementById('form-anchor')
-   let newHTML = `<label for="categories-dropdown">Item Category:</label>
-   <select class="categories-dropdown" name="categories" tag="additional-form-fields">
+   let newHTML = `<br><label for="categories-dropdown" id="new-cat-label">Category:</label>
+   <select class="categories-dropdown" name="categories" id="additional-form-fields">
    <option value="1">Main Courses</option>
    <option value="2">Snacks</option>
    <option value="3">Non-Alcoholic Drinks</option>
@@ -31,9 +31,25 @@ function addItemField(){
    <option value="7">Games</option>
    <option value="9">Decorations</option>
    <option value="8">Costumes</option>
-   </select><br>
-   <label for="new-item">Item Name:</label>
-   <input type="text" class="new-party-item" name="new-party-item" tag="additional-form-fields"><br><br>`
+   </select>
+   <label for="new-item" id="new-item-label">Item Name:</label>
+   <input type="text" class="new-party-item" name="new-party-item" id="additional-form-fields">`
    itemEnd.insertAdjacentHTML('afterend', newHTML)
 
+}
+
+function resetFormCount(){
+   while (document.getElementById('additional-form-fields')){
+   let newField = document.getElementById('additional-form-fields')
+   newField.remove()
+   }
+   while(document.getElementById('new-cat-label')){
+      let newCatLabel = document.getElementById('new-cat-label')
+      newCatLabel.previousSibling.remove()
+      newCatLabel.remove()
+   }
+   while(document.getElementById('new-item-label')){
+      let newFieldLabel = document.getElementById('new-item-label')
+     newFieldLabel.remove()
+   }
 }

@@ -21,11 +21,13 @@
         <form id="party-form">
 
             <!-- party title text field -->
-            <label for="party-title">Title:</label>
+            <label for="party-title">Party Title:</label><br>
             <input type="text" name="title" id="party-title"><br><br>
-            <input type="hidden" id="form-anchor" name="form-anchor">
+            
             <!-- first party category choice dropdown -->
-            <label for="categories-dropdown">Item Category:</label>
+            <label>Party Items:</label><br>
+            <input type="hidden" id="form-anchor" name="form-anchor">
+            <br><label for="categories-dropdown">Category:</label>
                 <select class="categories-dropdown" name="categories">
                     <option value="1">Main Courses</option>
                     <option value="2">Snacks</option>
@@ -36,7 +38,7 @@
                     <option value="7">Games</option>
                     <option value="9">Decorations</option>
                     <option value="8">Costumes</option>
-                </select><br>
+                </select>
 
                 <!-- first party item text field -->
             <label for="new-item">Item Name:</label>

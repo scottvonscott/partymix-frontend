@@ -68,8 +68,8 @@ class PartiesAdapter{
         party.attachToDom()
         
     })
-    // partyForm.remove(additionalFields)
     partyForm.reset()
+    resetFormCount()
 }
  
     deleteParty(id){
