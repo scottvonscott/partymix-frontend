@@ -4,7 +4,7 @@ const addItemFieldButton = document.getElementById('additional-item-button')
 const categoriesDropdown = document.getElementById('categories-dropdown')
 const partyForm = document.getElementById('party-form')
 const additionalFields = document.querySelectorAll('.additional-form-fields') 
-
+const partyNav = document.getElementById('party-list-sidenav')
 const itemsAdapter = new ItemsAdapter
 const partiesAdapter = new PartiesAdapter
 
@@ -50,3 +50,4 @@ function resetFormCount(){
      newFieldLabel.remove()
    }
 }
+
