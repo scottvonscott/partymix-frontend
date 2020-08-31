@@ -29,7 +29,7 @@ renderParty(){
     this.element.innerText = this.title
 
     this.items.forEach(i => {
-        let itemEle = document.createElement('li')
+        let itemEle = document.createElement('p')
         let itemCat = document.createElement('h3')
         
         itemCat.innerText = `${i.category}:`
