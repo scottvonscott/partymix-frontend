@@ -2,10 +2,11 @@ class Party{
 
     static all = []
 
-    constructor({title, id, items_and_categories}){
+    constructor({title, id, items}){
+        debugger
     this.title = title
     this.id = id
-    this.items = items_and_categories
+    this.items = items
 
     this.element = document.createElement('div')
     this.element.id = `party-${this.id}`
@@ -67,53 +68,3 @@ handleClick = (e) => {
     } 
  }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-// renderParty(){
-//     this.element.setAttribute('class', 'party')
-//     this.element.setAttribute('id', `Party ${this.element.id}`)
-//     this.element.innerText = this.title
-
-//     this.items.forEach(i => {
-//         let itemEle = document.createElement('li')
-//         let itemCat = document.createElement('h3')
-        
-//         itemCat.innerText = `${i.category}:`
-//         itemCat.hidden = true
-//         itemEle.innerText = i.name
-//         this.element.append(itemCat)
-//         itemCat.append(itemEle)
-//     })
-//     let deleteBtn = document.createElement('button')
-//     // let updateBtn = document.createElement('button')
-//     deleteBtn.setAttribute('class', 'delete')
-//     deleteBtn.setAttribute('data-id', this.id)
-//     deleteBtn.innerText = 'Delete'
-//     deleteBtn.hidden = true
-//     // updateBtn.setAttribute('class', 'update')
-//     // updateBtn.innerText = "Update"
-//     // updateBtn.hidden = true
-//     this.element.append(deleteBtn)
-//     this.element.addEventListener("click", expandParties(this))
-
-//     function expandParties(party){
-//         debugger
-//         let hiders = this.childNodes
-//         hiders.forEach(i => {
-//             i.hidden = !i.hidden
-//         })
-//      }
-//     return this.element
-// }

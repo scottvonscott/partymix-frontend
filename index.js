@@ -13,6 +13,7 @@ document.addEventListener('DOMContentLoaded', () => {
     partiesAdapter.fetchParties()
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
+    itemsAdapter.fetchItems()
 })
 
 function addItemField(){
