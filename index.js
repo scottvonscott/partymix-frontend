@@ -33,23 +33,25 @@ function addItemField(){
       <option value="8">Costumes</option>
       </select>
       <label for="new-item" id="new-item-label">Item Name:</label>
-      <input type="text" class="new-party-item" name="new-party-item" id="additional-form-fields">
+      <input type="text" class="new-party-item "name="new-party-item" id="new-party-item"><button onclick=randomize(this)>Random</button>
       </div>`
    itemEnd.insertAdjacentHTML('afterend', newHTML)
 
 }
 
-// function randomize(e) {
-//    debugger
-//    const chosenCat = e.parentElement.querySelector('.categories-dropdown').value
-//    const itemField = e.parentElement.querySelector('.new-party-item')
-//    const randomItem = getRndInteger(1, Item.all.length)
-//    Item.all.find_by(id: randomItem)
-   
-//    function getRndInteger(min, max) {
-//       return Math.floor(Math.random() * (max - min + 1) ) + min;
-//     }
-//    }
+function randomize(e) {
+   const selectedCategoryId = e.parentElement.querySelector('.categories-dropdown').value
+   const itemField = e.parentElement.querySelector('.new-party-item')
+   const selectedCategory = Category.all.find(cat => cat.id === parseFloat(selectedCategoryId))
+   const randomizedOptions = selectedCategory.items.map(item => item.name)
+   const randomChoice = getRndInteger(0, (randomizedOptions.length - 1))
+   itemField.value += randomizedOptions[randomChoice]
+   debugger
+
+   function getRndInteger(min, max) {
+      return Math.floor(Math.random() * (max - min + 1) ) + min;
+    }
+   }
 
 function resetFormCount(){
    while (document.getElementById('additional-form-fields')){

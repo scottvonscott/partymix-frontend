@@ -2,11 +2,10 @@ class Category{
 
     static all = []
 
-    constructor({name, id, category}){
+    constructor({name, id, items}){
     this.name = name
     this.id = id
-    this.category = category.name
-    this.category_id = category.id
+    this.items = items
 
 
     Category.all.push(this)
