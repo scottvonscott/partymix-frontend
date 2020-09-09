@@ -47,7 +47,7 @@ function addItemField(){
 }
 
 function randomize(e) {
-
+event.preventDefault()
    function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
@@ -58,7 +58,6 @@ function randomize(e) {
    const randomChoice = getRndInteger(0, (randomizedOptions.length - 1))
    let itemField = e.parentElement.querySelector('.new-party-item')
    itemField.value = randomizedOptions[randomChoice]
-   debugger
    }
 
 function resetFormCount(){
