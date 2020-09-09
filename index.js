@@ -4,10 +4,11 @@ const addItemFieldButton = document.getElementById('additional-item-button')
 const categoriesDropdown = document.getElementById('categories-dropdown')
 const partyForm = document.getElementById('party-form')
 const additionalFields = document.querySelectorAll('.additional-form-fields') 
-const partyNav = document.getElementById('party-list-sidenav')
+// const partyNav = document.getElementById('party-list-sidenav')
 const itemsAdapter = new ItemsAdapter
 const partiesAdapter = new PartiesAdapter
 const categoriesAdapter = new CategoriesAdapter
+const organizeBtn = document.getElementById('organize-button')
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
@@ -15,8 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
     categoriesAdapter.fetchCategories()
+    organizeBtn.addEventListener('click', handleOrganize)
 
 })
+
+function handleOrganize() {
+   debugger
+   Party.all.sort((a, b) => (a.items.length - b.items.length)).forEach((party) => party.attachToDom())
+}
 
 function addItemField(){
    let itemEnd = document.getElementById('form-anchor')
@@ -40,18 +47,18 @@ function addItemField(){
 }
 
 function randomize(e) {
-   const selectedCategoryId = e.parentElement.querySelector('.categories-dropdown').value
-   let itemField = e.parentElement.querySelector('.new-party-item')
-   const selectedCategory = Category.all.find(cat => cat.id === parseFloat(selectedCategoryId))
-   const randomizedOptions = selectedCategory.items.map(item => item.name)
-   const randomChoice = getRndInteger(0, (randomizedOptions.length - 1))
-
-   itemField.value = randomizedOptions[randomChoice]
-
 
    function getRndInteger(min, max) {
       return Math.floor(Math.random() * (max - min + 1) ) + min;
     }
+
+   const selectedCategoryId = e.parentElement.querySelector('.categories-dropdown').value
+   const selectedCategory = Category.all.find(cat => cat.id === parseFloat(selectedCategoryId))
+   const randomizedOptions = selectedCategory.items.map(item => item.name)
+   const randomChoice = getRndInteger(0, (randomizedOptions.length - 1))
+   let itemField = e.parentElement.querySelector('.new-party-item')
+   itemField.value = randomizedOptions[randomChoice]
+   debugger
    }
 
 function resetFormCount(){
