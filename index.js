@@ -7,34 +7,49 @@ const additionalFields = document.querySelectorAll('.additional-form-fields')
 const partyNav = document.getElementById('party-list-sidenav')
 const itemsAdapter = new ItemsAdapter
 const partiesAdapter = new PartiesAdapter
+const categoriesAdapter = new CategoriesAdapter
 
 // Event Listeners
 document.addEventListener('DOMContentLoaded', () => {
     partiesAdapter.fetchParties()
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
-    itemsAdapter.fetchItems()
+    categoriesAdapter.fetchCategories()
+
 })
 
 function addItemField(){
    let itemEnd = document.getElementById('form-anchor')
-   let newHTML = `<br><label for="categories-dropdown" id="new-cat-label">Category:</label>
-   <select class="categories-dropdown" name="categories" id="additional-form-fields">
-   <option value="1">Main Courses</option>
-   <option value="2">Snacks</option>
-   <option value="3">Non-Alcoholic Drinks</option>
-   <option value="4">Alcoholic Drinks</option>
-   <option value="6">Movies & TV</option>
-   <option value="5">Music</option>
-   <option value="7">Games</option>
-   <option value="9">Decorations</option>
-   <option value="8">Costumes</option>
-   </select>
-   <label for="new-item" id="new-item-label">Item Name:</label>
-   <input type="text" class="new-party-item" name="new-party-item" id="additional-form-fields">`
+   let newHTML = `<br><div class="form-item-line"><label for="categories-dropdown" id="new-cat-label">Category:</label>
+      <select class="categories-dropdown" name="categories" id="additional-form-fields">
+      <option value="1">Main Courses</option>
+      <option value="2">Snacks</option>
+      <option value="3">Non-Alcoholic Drinks</option>
+      <option value="4">Alcoholic Drinks</option>
+      <option value="6">Movies & TV</option>
+      <option value="5">Music</option>
+      <option value="7">Games</option>
+      <option value="9">Decorations</option>
+      <option value="8">Costumes</option>
+      </select>
+      <label for="new-item" id="new-item-label">Item Name:</label>
+      <input type="text" class="new-party-item" name="new-party-item" id="additional-form-fields">
+      </div>`
    itemEnd.insertAdjacentHTML('afterend', newHTML)
 
 }
+
+// function randomize(e) {
+//    debugger
+//    const chosenCat = e.parentElement.querySelector('.categories-dropdown').value
+//    const itemField = e.parentElement.querySelector('.new-party-item')
+//    const randomItem = getRndInteger(1, Item.all.length)
+//    Item.all.find_by(id: randomItem)
+   
+//    function getRndInteger(min, max) {
+//       return Math.floor(Math.random() * (max - min + 1) ) + min;
+//     }
+//    }
 
 function resetFormCount(){
    while (document.getElementById('additional-form-fields')){

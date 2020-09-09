@@ -1,6 +1,4 @@
-// item class 
-
-class Item{
+class Category{
 
     static all = []
 
@@ -11,7 +9,7 @@ class Item{
     this.category_id = category.id
 
 
-    Item.all.push(this)
+    Category.all.push(this)
 }
 
 

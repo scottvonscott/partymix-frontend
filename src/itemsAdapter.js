@@ -1,5 +1,4 @@
-// communicate with back end
-// post,patch,delete, requests
+
 
 class ItemsAdapter{
     constructor(){

@@ -3,7 +3,7 @@ class Party{
     static all = []
 
     constructor({title, id, items}){
-        debugger
+        
     this.title = title
     this.id = id
     this.items = items

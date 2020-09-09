@@ -34,6 +34,7 @@
             <br><button class"button" id="additional-item-button" type="button" name="button"> Add Additional Item</button><br>
 
             <input type="hidden" id="form-anchor" name="form-anchor">
+            <div class="form-item-line">
             <br><label for="categories-dropdown">Category:</label>
                 <select class="categories-dropdown" name="categories">
                     <option value="1">Main Courses</option>
@@ -49,7 +50,8 @@
 
                 <!-- first party item text field -->
             <label for="new-item">Item Name:</label>
-            <input type="text" class="new-party-item "name="new-party-item"><button onClick={}>Random</button>
+            <input type="text" class="new-party-item "name="new-party-item"><button onclick=randomize(this)>Random</button>
+            </div>
             <br>
             <br><input type="submit" value="Create Party">
             
@@ -60,8 +62,10 @@
         <script src="src/partiesAdapter.js" type="text/javascript"></script>
         <script src="src/item.js" type="text/javascript"></script>
         <script src="src/itemsAdapter.js" type="text/javascript"></script>
+        <script src="src/category.js" type="text/javascript"></script>
+        <script src="src/categoriesAdapter.js" type="text/javascript"></script>
         <script src="index.js" type="text/javascript"></script>
-
+        
  
     </body>
 </html>
