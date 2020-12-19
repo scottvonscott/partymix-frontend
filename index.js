@@ -16,14 +16,14 @@ document.addEventListener('DOMContentLoaded', () => {
     partyForm.addEventListener('submit', partiesAdapter.createParty)
     addItemFieldButton.addEventListener('click', addItemField)
     categoriesAdapter.fetchCategories()
-    organizeBtn.addEventListener('click', handleOrganize)
+   //  organizeBtn.addEventListener('click', handleOrganize)
 
 })
 
-function handleOrganize() {
-   debugger
-   Party.all.sort((a, b) => (a.items.length - b.items.length)).forEach((party) => party.attachToDom())
-}
+// function handleOrganize() {
+//    debugger
+//    Party.all.sort((a, b) => (a.items.length - b.items.length)).forEach((party) => party.attachToDom())
+// }
 
 function addItemField(){
    let itemEnd = document.getElementById('form-anchor')
